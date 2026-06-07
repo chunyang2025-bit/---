@@ -13,8 +13,9 @@
 ## 当前阶段
 
 - 投资人版 + 工程落地版 PRD 已完成
-- Next.js Demo 已完成，可本地预览
-- 已跑通 Swipe Feed、JSON 状态机、生成/Remix 模拟、credits、举报、收藏、分享页和数据面板
+- 手机优先版 Next.js Demo 已完成，可本地与局域网手机预览
+- 已跑通注册/登录、推荐刷内容、生成发布、Remix 二创、credits、举报、收藏、分享页和创作者数据面板
+- 后端 API 已拆分为 auth/state/generate/events/saved/reports，并使用本地文件模拟数据库持久化
 - 下一步：接入真实 Supabase、DeepSeek API 与 Zeabur 部署
 
 ## 核心模块
@@ -23,6 +24,7 @@
 - JSON State Machine：用结构化剧情节点保证 MVP 运行成功率
 - AI 剧本生成器：Next.js API route + 内容审查 + 输出校验（当前为本地 mock，预留 DeepSeek 接入）
 - Remix Pipeline：复制原始 prompt，并通过 `parent_id` 追踪父子继承
+- Account Flow：注册、登录、退出、游客浏览、登录后发布与二创
 - 风控+合规：前后端敏感词过滤、版权 IP 屏蔽、举报机制、ICP备案占位
 - 算力防爆：用户 credits 机制、生成前扣费
 - 数据漏斗：Remix 转化率、D1 留存、平均节点深度、算力消耗速率
@@ -35,6 +37,8 @@ npm run dev
 ```
 
 打开 `http://127.0.0.1:3033`。
+
+手机预览：运行 `npm run dev` 后，用同一 Wi-Fi 下电脑的局域网 IP 访问 `http://<电脑局域网IP>:3033`。
 
 ## 验证
 
@@ -50,7 +54,7 @@ npm run build
 - `PROGRESS.md`：项目阶段进度、已完成事项与下一步任务
 - `app/`：Next.js App Router 页面与 API route
 - `components/`：Swipe Feed、Game Card、弹窗、分享页组件
-- `lib/`：Demo 数据、类型与内容审查逻辑
+- `lib/`：Demo 数据、类型、内容审查、生成器与本地后端 store
 - `public/scenes/`：本地场景视觉资产
 
 ## 部署建议

@@ -59,15 +59,14 @@ export default function GameCard({
         backgroundColor: currentNode.bg_color_hex
       }}
     >
-      <div className="absolute inset-0 scene-ink" />
-      <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(5,7,10,0.12),rgba(5,7,10,0.16)_42%,rgba(5,7,10,0.78))]" />
+      <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(6,8,12,0.10),rgba(6,8,12,0.22)_42%,rgba(6,8,12,0.82))]" />
       <img
         alt=""
-        className="absolute inset-x-0 top-[8dvh] mx-auto h-[38dvh] max-h-[360px] w-[86%] max-w-[460px] object-contain opacity-95 drop-shadow-[0_28px_40px_rgba(0,0,0,0.42)]"
+        className="absolute inset-x-0 top-[9dvh] mx-auto h-[34dvh] max-h-[340px] w-[82%] max-w-[430px] object-contain opacity-90 drop-shadow-[0_24px_34px_rgba(0,0,0,0.34)]"
         src={currentNode.image_url}
       />
 
-      <div className="absolute right-3 top-[25dvh] z-20 flex w-12 flex-col items-center gap-3 sm:right-[calc(50%-230px)]">
+      <div className="absolute right-3 top-[25dvh] z-20 flex w-12 flex-col items-center gap-2.5 sm:right-[calc(50%-230px)]">
         <RailButton label="喜欢" value={game.likes_count} onClick={() => onEvent({ event_name: 'saved', game_id: game.id })}>
           <Heart className="h-5 w-5" />
         </RailButton>
@@ -85,32 +84,32 @@ export default function GameCard({
         </RailButton>
       </div>
 
-      <div className="absolute inset-x-0 bottom-0 z-10 mx-auto flex h-[54dvh] max-w-[520px] flex-col justify-end px-4 pb-5">
+      <div className="absolute inset-x-0 bottom-0 z-10 mx-auto flex h-[58dvh] max-w-[520px] flex-col justify-end px-4 pb-[calc(max(1rem,env(safe-area-inset-bottom))+5.2rem)]">
         <div className="mb-4">
-          <div className="mb-2 flex items-center gap-2 text-xs text-teal-100/75">
-            <span className="rounded-full border border-teal-200/20 px-2 py-1">{game.creator_name}</span>
-            <span>{game.plays_count.toLocaleString()} plays</span>
-            {game.parent_id ? <span>Remix 血统</span> : null}
+          <div className="mb-2 flex items-center gap-2 text-xs text-white/66">
+            <span className="rounded-full border border-white/15 bg-black/24 px-2 py-1">{game.creator_name}</span>
+            <span>{game.plays_count.toLocaleString()} 次游玩</span>
+            {game.parent_id ? <span>二创作品</span> : null}
           </div>
           <h2 className="text-3xl font-semibold tracking-normal text-white">{game.title}</h2>
-          <p className="mt-1 line-clamp-2 text-sm leading-6 text-slate-200/76">{game.description}</p>
+          <p className="mt-1 line-clamp-2 text-sm leading-6 text-white/72">{game.description}</p>
         </div>
 
         <AnimatePresence mode="wait">
           <motion.div
             key={`${game.id}-${currentNode.node_tag}`}
             animate={{ opacity: 1, y: 0 }}
-            className="glass-line min-h-[238px] rounded-lg p-4 shadow-glow"
+            className="min-h-[230px] rounded-2xl border border-white/10 bg-[#f7f3ea] p-4 text-slate-950 shadow-2xl shadow-black/24"
             exit={{ opacity: 0, y: -14 }}
             initial={{ opacity: 0, y: 16 }}
             transition={{ duration: 0.22 }}
           >
-            <TypingText className="min-h-[96px] text-lg leading-8 text-slate-50" text={currentNode.story_text} />
+            <TypingText className="min-h-[96px] text-[17px] leading-8 text-slate-900" text={currentNode.story_text} />
 
             <div className="mt-5 grid gap-2">
               {currentNode.options.map((option) => (
                 <button
-                  className="min-h-12 rounded-lg border border-white/14 bg-white/[0.08] px-4 py-3 text-left text-sm font-medium text-white transition hover:border-teal-200/50 hover:bg-teal-200/12"
+                  className="min-h-12 rounded-xl border border-slate-950/10 bg-white px-4 py-3 text-left text-sm font-medium text-slate-950 transition active:scale-[0.99]"
                   key={option.next_tag}
                   onClick={() => advance(option.next_tag)}
                   type="button"
@@ -122,7 +121,7 @@ export default function GameCard({
               {currentNode.is_ending ? (
                 <div className="grid grid-cols-[1fr_auto] gap-2">
                   <button
-                    className="min-h-12 rounded-lg bg-teal-300 px-4 py-3 text-sm font-semibold text-slate-950 transition hover:bg-teal-200"
+                    className="min-h-12 rounded-xl bg-slate-950 px-4 py-3 text-sm font-semibold text-white transition active:scale-[0.99]"
                     onClick={() => onRemix(game)}
                     type="button"
                   >
@@ -133,7 +132,7 @@ export default function GameCard({
                   </button>
                   <button
                     aria-label="重新开始"
-                    className="h-12 w-12 rounded-lg border border-white/14 bg-white/[0.08] text-white transition hover:bg-white/[0.14]"
+                    className="h-12 w-12 rounded-xl border border-slate-950/10 bg-white text-slate-950 transition active:scale-[0.99]"
                     onClick={restart}
                     type="button"
                   >
@@ -163,8 +162,8 @@ function RailButton({ children, label, active, value, onClick }: RailButtonProps
       aria-label={label}
       className={`flex w-12 flex-col items-center gap-1 rounded-lg border px-2 py-2 text-[10px] transition ${
         active
-          ? 'border-teal-200/60 bg-teal-200/22 text-teal-50'
-          : 'border-white/12 bg-black/24 text-slate-100 hover:bg-white/12'
+          ? 'border-white/70 bg-white text-slate-950'
+          : 'border-white/12 bg-black/38 text-white hover:bg-white/12'
       }`}
       onClick={onClick}
       title={label}

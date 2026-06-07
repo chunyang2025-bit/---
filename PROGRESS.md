@@ -6,8 +6,8 @@
 
 - 项目名称：抖你玩 (Animake) MVP
 - 项目定位：中国首款“刷着玩”的 AI 故事与互动轻游戏社区
-- 当前阶段：可试玩 Demo 已完成
-- 已完成：README 项目简介、完整 MVP PRD、Next.js Demo、Swipe Feed、JSON 状态机、生成/Remix mock、credits、举报、收藏、分享页、数据面板
+- 当前阶段：手机优先、前后端一体 Demo 已完成
+- 已完成：README 项目简介、完整 MVP PRD、Next.js Demo、注册/登录、推荐流、JSON 状态机、生成发布、Remix 二创、credits、举报、收藏、分享页、创作者数据面板
 
 ### 已同步资料
 
@@ -19,6 +19,9 @@
 ### 已完成 Demo 功能
 
 - [x] 初始化 Next.js 16 + React 19 + Tailwind 前端工程
+- [x] 实现注册、登录、退出与游客浏览模式
+- [x] 实现前后端 API 拆分：auth/state/generate/events/saved/reports
+- [x] 使用 `.demo-state.json` 模拟后端数据库持久化
 - [x] 实现移动优先的垂直 Swipe Feed
 - [x] 实现 Game Card 内部 JSON 状态机、节点切换和结局重开
 - [x] 实现 `/api/generate-game` mock，包含内容审查和标准 JSON 输出
@@ -27,6 +30,7 @@
 - [x] 实现举报、收藏、历史记录、分享链接和 ICP 占位
 - [x] 实现 Remix 转化率、平均游玩深度、credits 消耗与事件面板
 - [x] 增加 `/share/[gameId]` 公共分享页
+- [x] 调整为简洁大气的手机端界面风格
 - [x] 通过 `npm run lint` 和 `npm run build`
 
 ### 下一步任务
@@ -34,6 +38,7 @@
 - [ ] 在 Supabase 中建立 `profiles` / `games` / `game_nodes` / `user_history` / `reports` 表
 - [ ] 创建 `deduct_credits(user_id, amount)` RPC
 - [ ] 把 mock 数据层替换为真实 Supabase CRUD
+- [ ] 把内存/文件账号系统替换为 Supabase Auth
 - [ ] 把 `/api/generate-game` 的 mock 生成替换为 DeepSeek API
 - [ ] 接入真实登录、用户 profiles、RLS 与生产内容安全服务
 - [ ] 配置 Zeabur 环境变量并部署公网 Demo

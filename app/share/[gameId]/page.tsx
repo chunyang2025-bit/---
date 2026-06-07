@@ -1,7 +1,9 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import { seedGames } from '@/lib/demo-data';
+import { snapshot } from '@/lib/server-store';
 import ShareExperience from '@/components/share-experience';
+
+export const dynamic = 'force-dynamic';
 
 type SharePageProps = {
   params: Promise<{
@@ -11,7 +13,7 @@ type SharePageProps = {
 
 export async function generateMetadata({ params }: SharePageProps): Promise<Metadata> {
   const { gameId } = await params;
-  const game = seedGames.find((item) => item.id === gameId);
+  const game = snapshot().games.find((item) => item.id === gameId);
 
   if (!game) {
     return {
@@ -32,7 +34,7 @@ export async function generateMetadata({ params }: SharePageProps): Promise<Meta
 
 export default async function SharePage({ params }: SharePageProps) {
   const { gameId } = await params;
-  const game = seedGames.find((item) => item.id === gameId);
+  const game = snapshot().games.find((item) => item.id === gameId);
 
   if (!game) {
     notFound();

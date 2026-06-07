@@ -32,3 +32,30 @@ export type AnalyticsEvent = {
   game_id: string;
   properties?: Record<string, string | number | boolean>;
 };
+
+export type DemoUser = {
+  id: string;
+  phone: string;
+  nickname: string;
+  credits: number;
+  created_at: string;
+};
+
+export type DemoMetrics = {
+  remixRate: number;
+  avgDepth: number;
+  creditDrainVelocity: number;
+  saved: number;
+  reported: number;
+};
+
+export type DemoSnapshot = {
+  games: Game[];
+  credits: number;
+  user: DemoUser | null;
+  savedIds: string[];
+  historyIds: string[];
+  reportedIds: string[];
+  events: AnalyticsEvent[];
+  metrics: DemoMetrics;
+};
