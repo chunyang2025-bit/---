@@ -6,8 +6,8 @@
 
 - 项目名称：抖你玩 (Animake) MVP
 - 项目定位：中国首款“刷着玩”的 AI 故事与互动轻游戏社区
-- 当前阶段：项目启动、投资人版 PRD 与工程架构沉淀
-- 已完成：README 项目简介、MVP PRD、核心技术路径、数据库初稿、Credits 机制、合规与风控方案、数据指标漏斗
+- 当前阶段：项目启动、投资人版 PRD 与工程方案沉淀
+- 已完成：README 项目简介、完整 MVP PRD、核心技术路径、数据库方案、Credits 机制、合规风控、增长指标与部署路径
 
 ### 已同步资料
 
@@ -17,13 +17,14 @@
 
 ### 下一步任务
 
-- [ ] 初始化 Next.js + React + Tailwind 前端工程
+- [ ] 初始化 Next.js 14 + React + Tailwind 前端工程
 - [ ] 在 Supabase 中建立 `profiles` / `games` / `game_nodes` / `user_history` / `reports` 表
+- [ ] 创建 `deduct_credits(user_id, amount)` RPC
 - [ ] 实现移动优先的垂直 Swipe Feed
-- [ ] 实现 `/api/generate-game`，接入 DeepSeek 并加入内容审查
+- [ ] 实现 `/api/generate-game`，接入 DeepSeek、内容审查、credits 扣费和 JSON 输出校验
 - [ ] 实现 Remix 生成链路与 `parent_id` 继承关系
-- [ ] 加入 credits 积分扣费机制
-- [ ] 增加举报系统、分享页与 ICP 占位
+- [ ] 增加举报系统、历史记录、收藏、分享页与 ICP 占位
+- [ ] 添加 Remix 转化率、平均游玩深度、credits 消耗速率与次留指标打点
 
 ### 风险备注
 

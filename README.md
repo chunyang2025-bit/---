@@ -13,15 +13,17 @@
 ## 当前阶段
 
 - 投资人版 + 工程落地版 PRD 已完成
-- 下一步：初始化 Next.js 工程、建立 Supabase 表、实现 Swipe Feed 与 AI 生成闭环
+- GitHub 同步准备中
+- 下一步：初始化 Next.js 14 + Tailwind + Supabase 工程，跑通 Swipe Feed、AI 生成与 Remix 闭环
 
 ## 核心模块
 
 - Swipe Feed Container：TikTok 式垂直滑动互动卡片
-- AI 剧本生成器：Next.js API route + DeepSeek + 内容审查
+- JSON State Machine：用结构化剧情节点保证 MVP 运行成功率
+- AI 剧本生成器：Next.js API route + DeepSeek + 内容审查 + 输出校验
 - Remix Pipeline：复制原始 prompt，并通过 `parent_id` 追踪父子继承
-- 风控+合规：前端敏感词过滤、版权 IP 屏蔽、举报机制、ICP备案占位
-- 算力防爆：用户积分/credits 机制、生成前扣费
+- 风控+合规：前后端敏感词过滤、版权 IP 屏蔽、举报机制、ICP备案占位
+- 算力防爆：用户 credits 机制、生成前扣费
 - 数据漏斗：Remix 转化率、D1 留存、平均节点深度、算力消耗速率
 
 ## 结构
@@ -32,6 +34,7 @@
 
 ## 部署建议
 
+- 技术栈：Next.js 14 + React + Tailwind CSS + Supabase + DeepSeek + Zeabur
 - 本地开发：`npm run dev`
 - 代码托管：GitHub 私有仓库
 - 生产部署：推荐 Zeabur + Supabase
