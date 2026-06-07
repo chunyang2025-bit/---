@@ -1,0 +1,30 @@
+{
+  "name": "douplay-animake-demo",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev -H 127.0.0.1 -p 3033",
+    "build": "next build",
+    "start": "next start -H 127.0.0.1 -p 3033",
+    "lint": "eslint ."
+  },
+  "dependencies": {
+    "@types/node": "latest",
+    "@types/react": "latest",
+    "@types/react-dom": "latest",
+    "framer-motion": "latest",
+    "lucide-react": "latest",
+    "next": "^16.2.7",
+    "react": "^19.2.7",
+    "react-dom": "^19.2.7",
+    "typescript": "latest"
+  },
+  "devDependencies": {
+    "autoprefixer": "latest",
+    "eslint": "^9.39.4",
+    "@eslint/eslintrc": "latest",
+    "eslint-config-next": "^16.2.7",
+    "postcss": "latest",
+    "tailwindcss": "^3.4.17"
+  }
+}

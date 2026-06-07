@@ -1,0 +1,74 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+  --bg: #05070a;
+  --ink: #f8fafc;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+}
+
+body {
+  overflow: hidden;
+}
+
+button,
+input,
+textarea {
+  font: inherit;
+}
+
+.snap-feed {
+  scrollbar-width: none;
+}
+
+.snap-feed::-webkit-scrollbar {
+  display: none;
+}
+
+.scene-ink {
+  background-image:
+    radial-gradient(circle at 22% 18%, rgba(45, 212, 191, 0.16), transparent 26%),
+    radial-gradient(circle at 72% 12%, rgba(248, 113, 113, 0.14), transparent 24%),
+    linear-gradient(145deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0));
+}
+
+.glass-line {
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: rgba(8, 13, 20, 0.68);
+  backdrop-filter: blur(18px);
+}
+
+.typing-caret::after {
+  content: '';
+  display: inline-block;
+  width: 0.55em;
+  height: 1.05em;
+  margin-left: 0.12em;
+  transform: translateY(0.16em);
+  background: currentColor;
+  animation: caret 0.9s steps(2, start) infinite;
+}
+
+@keyframes caret {
+  0%,
+  45% {
+    opacity: 1;
+  }
+  46%,
+  100% {
+    opacity: 0;
+  }
+}
