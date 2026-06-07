@@ -1,4 +1,4 @@
-# 抖你玩 (Animake) MVP
+# 灵动织造 / 抖你玩 (Animake) MVP
 
 中国首款“刷着玩”的 AI 故事与互动轻游戏社区。
 
@@ -12,16 +12,17 @@
 
 ## 当前阶段
 
-- PRD 已完成
-- 下一步：在 Supabase 中建表、设计前端 Swipe Feed、实现 AI 生成与 Remix 流程
+- 投资人版 + 工程落地版 PRD 已完成
+- 下一步：初始化 Next.js 工程、建立 Supabase 表、实现 Swipe Feed 与 AI 生成闭环
 
 ## 核心模块
 
 - Swipe Feed Container：TikTok 式垂直滑动互动卡片
 - AI 剧本生成器：Next.js API route + DeepSeek + 内容审查
-- Remix Pipeline：复制原始 prompt 并生成父子继承游戏
+- Remix Pipeline：复制原始 prompt，并通过 `parent_id` 追踪父子继承
 - 风控+合规：前端敏感词过滤、版权 IP 屏蔽、举报机制、ICP备案占位
 - 算力防爆：用户积分/credits 机制、生成前扣费
+- 数据漏斗：Remix 转化率、D1 留存、平均节点深度、算力消耗速率
 
 ## 结构
 
